@@ -51,20 +51,20 @@ export class Address {
   }
 
   validateState(state: string) {
-    if (state.length !== 2) {
-      throw new Error("State must be 2 characters");
+    if (state.length < 2) {
+      throw new Error("State must be at least 2 characters");
     }
   }
 
   validateZip(zip: string) {
-    if (zip.length !== 5) {
+    if (zip.length < 5) {
       throw new Error("Zip must be 5 characters");
     }
   }
 
   validateCity(city: string) {
-    if (city.length !== 5) {
-      throw new Error("City must be 3 characters");
+    if (city.length < 2) {
+      throw new Error("City must be at least 2 characters");
     }
   }
 
