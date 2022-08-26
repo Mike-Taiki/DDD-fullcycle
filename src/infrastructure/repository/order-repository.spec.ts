@@ -49,10 +49,7 @@ describe("Order repository test", () => {
     const orderRepository = new OrderRepository();
     await orderRepository.create(order);
 
-    const orderModel = await OrderModel.findOne({
-      where: { id: order.id },
-      include: ["items"],
-    });
+    const orderModel = await orderRepository.find(order.id);
 
     expect(orderModel?.toJSON()).toStrictEqual({
       id: "123",

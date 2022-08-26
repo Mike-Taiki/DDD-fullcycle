@@ -1,6 +1,7 @@
 import { OrderModel } from "./../db/sequelize/model/order.model";
 import { Order } from "./../../domain/entity/order";
 import { OrderItemModel } from "../db/sequelize/model/order-item.model";
+import { OrderRepositoryInterface } from "../../domain/repository/order-repository.interface";
 
 export class OrderRepository {
   async create(entity: Order): Promise<void> {
@@ -22,4 +23,17 @@ export class OrderRepository {
       }
     );
   }
+
+  async find(id: string): Promise<OrderModel> {
+    const order = await OrderModel.findOne({
+      where: { id },
+      include: ["items"],
+    });
+
+    return order;
+  }
+
+  async findAll(id: string) {}
+
+  async update() {}
 }
