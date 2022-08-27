@@ -42,15 +42,15 @@ export class OrderRepository {
 
   async findAll(): Promise<Order[]> {
     const ordersModel = await OrderModel.findAll({ include: ["items"] });
-    let items: Item[] = [];
 
     const orders = ordersModel.map((order) => {
+      const orderItems: Item[] = [];
       order.items.forEach((item) => {
-        items.push(
+        orderItems.push(
           new Item(item.id, item.name, item.price, item.id, item.quantity)
         );
       });
-      return new Order(order.id, order.customer_id, items);
+      return new Order(order.id, order.customer_id, orderItems);
     });
 
     return orders;

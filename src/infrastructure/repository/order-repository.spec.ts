@@ -60,10 +60,11 @@ describe("Order repository test", () => {
     expect(foundOrder).toStrictEqual(order);
   });
 
-  // it("should find all orders", async () => {
-  //   const { order, ordemItem } = await createOrder1();
-  //   const foundOrders = await orderRepository.findAll();
-  //   const orders = orderMock(order, ordemItem);
-  //   expect(foundOrders).toEqual(orders);
-  // });
+  it("should find all orders", async () => {
+    const order1 = await createOrder1();
+    const order2 = await createOrder2();
+    const orders = [order1.order, order2.order];
+    const foundOrders = await orderRepository.findAll();
+    expect(foundOrders).toStrictEqual(orders);
+  });
 });

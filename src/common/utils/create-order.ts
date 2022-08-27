@@ -9,14 +9,16 @@ import { CustomerRepository } from "../../infrastructure/repository/customer-rep
 
 export const orderRepository = new OrderRepository();
 
+export const customerRepository = new CustomerRepository();
+
+export const productRepository = new ProductRepository();
+
 export async function createOrder1() {
-  const customerRepository = new CustomerRepository();
   const customer = new Customer("3", "Customer 12");
   const address = new Address("Street 1", 1, "Zipcode 1", "City 1", "SP");
   customer.address = address;
   await customerRepository.create(customer);
 
-  const productRepository = new ProductRepository();
   const product = new Product("1", "Product 1", 10);
   await productRepository.create(product);
 
@@ -29,20 +31,18 @@ export async function createOrder1() {
 }
 
 export async function createOrder2() {
-  const customerRepository = new CustomerRepository();
-  const customer = new Customer("3", "Customer 12");
+  const customer = new Customer("4", "Customer 3");
   const address = new Address("Street 1", 1, "Zipcode 1", "City 1", "SP");
   customer.address = address;
   await customerRepository.create(customer);
 
-  const productRepository = new ProductRepository();
-  const product = new Product("1", "Product 1", 10);
+  const product = new Product("2", "Product 1", 10);
   await productRepository.create(product);
 
-  const ordemItem = new Item("1", product.name, product.price, product.id, 2);
+  const ordemItem = new Item("2", product.name, product.price, product.id, 2);
 
-  const order = new Order("2", "3", [ordemItem]);
+  const order = new Order("3", "4", [ordemItem]);
   await orderRepository.create(order);
 
-  return { order };
+  return { order, ordemItem };
 }
