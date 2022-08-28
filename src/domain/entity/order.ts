@@ -33,7 +33,15 @@ export class Order {
   }
 
   total() {
-    return this._items.reduce((acc, item) => acc + item.price, 0);
+    return this._items.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
+  }
+
+  changeItem(itemId: string, item: Item) {
+    const idx = this.items.findIndex((item) => item.id === itemId);
+    this._items[idx] = item;
   }
 
   get id() {

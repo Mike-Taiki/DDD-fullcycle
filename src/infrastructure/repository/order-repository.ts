@@ -1,4 +1,3 @@
-import { Product } from "./../../domain/entity/product";
 import { OrderModel } from "./../db/sequelize/model/order.model";
 import { Order } from "./../../domain/entity/order";
 import { Item } from "./../../domain/entity/item";
@@ -56,5 +55,16 @@ export class OrderRepository {
     return orders;
   }
 
-  async update() {}
+  async update(entity: Order) {
+    // const order = new Order(entity.id, entity.customerId, entity.items);
+    await OrderModel.update(
+      {
+        id: entity.id,
+        customer_id: entity.customerId,
+        items: entity.items,
+        total: entity.total(),
+      },
+      { where: { id: entity.id } }
+    );
+  }
 }

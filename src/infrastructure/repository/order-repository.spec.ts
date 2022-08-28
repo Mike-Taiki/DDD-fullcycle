@@ -1,5 +1,6 @@
+import { Order } from "./../../domain/entity/order";
+import { Item } from "./../../domain/entity/item";
 import { orderRepository } from "./../../common/utils/create-order";
-import { orderMock } from "./../../__mocks__/order.mock";
 import { OrderModel } from "./../db/sequelize/model/order.model";
 import { Sequelize } from "sequelize-typescript";
 import { CustomerModel } from "../db/sequelize/model/customer.model";
@@ -66,5 +67,24 @@ describe("Order repository test", () => {
     const orders = [order1.order, order2.order];
     const foundOrders = await orderRepository.findAll();
     expect(foundOrders).toStrictEqual(orders);
+  });
+
+  it("should update a order", async () => {
+    const { order } = await createOrder1();
+    const orderModel = await OrderModel.findOne({
+      where: { id: order.id },
+      include: ["items"],
+    });
+    expect(orderModel?.total).toBe(20);
+
+    const item = new Item("1", "Product", 100, "1", 2);
+    order.changeItem("1", item);
+    await orderRepository.update(order);
+
+    const orderModel2 = await OrderModel.findOne({
+      where: { id: order.id },
+      include: ["items"],
+    });
+    expect(orderModel2?.total).toBe(200);
   });
 });
