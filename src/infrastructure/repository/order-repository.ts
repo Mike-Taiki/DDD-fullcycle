@@ -56,7 +56,6 @@ export class OrderRepository {
   }
 
   async update(entity: Order) {
-    // const order = new Order(entity.id, entity.customerId, entity.items);
     await OrderModel.update(
       {
         id: entity.id,
