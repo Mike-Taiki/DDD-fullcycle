@@ -1,9 +1,10 @@
+import { OrderRepositoryInterface } from "./../../domain/repository/order-repository.interface";
 import { OrderModel } from "./../db/sequelize/model/order.model";
 import { Order } from "./../../domain/entity/order";
 import { Item } from "./../../domain/entity/item";
 import { OrderItemModel } from "../db/sequelize/model/order-item.model";
 
-export class OrderRepository {
+export class OrderRepository implements OrderRepositoryInterface {
   async create(entity: Order): Promise<void> {
     const order = {
       id: entity.id,
