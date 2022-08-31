@@ -6,14 +6,14 @@ describe("Customer created handler", () => {
   it("should call log1 and log2 function for execute console.log", () => {
     const customer = new Customer("1", "Pedro");
     const customerCreatedEvent = new CustomerCreatedEvent(customer);
-    const eventHandler = new EventDispatcher();
-    const logEvent = new logCustomerCreatedHandler();
-    const spyHandle = jest.spyOn(logEvent, "handle");
-    const spyLog1 = jest.spyOn(logEvent, "log1");
-    const spyLog2 = jest.spyOn(logEvent, "log2");
+    const eventDispatcher = new EventDispatcher();
+    const eventHandler = new logCustomerCreatedHandler();
+    const spyHandle = jest.spyOn(eventHandler, "handle");
+    const spyLog1 = jest.spyOn(eventHandler, "log1");
+    const spyLog2 = jest.spyOn(eventHandler, "log2");
 
-    eventHandler.register("CustomerCreatedEvent", logEvent);
-    eventHandler.notify(customerCreatedEvent);
+    eventDispatcher.register("CustomerCreatedEvent", eventHandler);
+    eventDispatcher.notify(customerCreatedEvent);
 
     expect(spyHandle).toHaveBeenCalled();
     expect(spyLog1).toHaveBeenCalled();
