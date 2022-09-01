@@ -1,8 +1,8 @@
-import { EnviaConsoleLog1Handler } from "./envia-console-log1-handler";
-import { EnviaConsoleLog2Handler } from "./envia-console-log2-handler";
-import { EventDispatcher } from "../../@shared/event-dispatcher";
-import { CustomerCreatedEvent } from "../customer-created.event";
-import { Customer } from "../../../entity/customer";
+import { EnviaConsoleLog1Handler } from "./handler/envia-console-log1-handler";
+import { EnviaConsoleLog2Handler } from "./handler/envia-console-log2-handler";
+import { EventDispatcher } from "../@shared/event-dispatcher";
+import { CustomerCreatedEvent } from "./customer-created.event";
+import { Customer } from "../../entity/customer";
 describe("Customer created handler", () => {
   it("should call function for execute console.log", () => {
     const customer = new Customer("1", "Pedro");
