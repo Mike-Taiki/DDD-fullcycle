@@ -1,11 +1,11 @@
-import { OrderRepository } from "./../../infrastructure/repository/order-repository";
-import { Order } from "../../domain/checkout/order";
-import { Item } from "../../domain/checkout/item";
-import { Product } from "./../../domain/entity/product";
-import { ProductRepository } from "./../../infrastructure/repository/product.repository";
-import { Address } from "./../../domain/entity/address";
-import { Customer } from "./../../domain/entity/customer";
-import { CustomerRepository } from "../../infrastructure/repository/customer-repository";
+import { Order } from "../../domain/checkout/entity/order";
+import { Item } from "../../domain/checkout";
+import { Product } from "../../domain/product/entity/product";
+import { Address } from "../../domain/customer/value-object/address";
+import { Customer } from "../../domain/customer";
+import { CustomerRepository } from "../../domain/customer/repository/customer-repository";
+import { OrderRepository } from "../../domain/checkout/repository/order-repository";
+import { ProductRepository } from "../../domain/product/repository/product.repository";
 
 export const orderRepository = new OrderRepository();
 

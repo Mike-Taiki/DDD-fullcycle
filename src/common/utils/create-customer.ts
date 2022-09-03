@@ -1,6 +1,6 @@
-import { Address } from "./../../domain/entity/address";
-import { Customer } from "../../domain/entity";
-import { CustomerRepository } from "../../infrastructure/repository/customer-repository";
+import { Address } from "../../domain/customer/value-object/address";
+import { Customer } from "../../domain/customer";
+import { CustomerRepository } from "../../domain/customer/repository/customer-repository";
 
 export const customerRepository = new CustomerRepository();
 

@@ -1,2 +1,2 @@
-export { Item } from "./item";
-export { Order } from "./order";
+export { Item } from "./entity/item";
+export { Order } from "./entity/order";
