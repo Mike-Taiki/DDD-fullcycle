@@ -1,6 +1,6 @@
 import { OrderRepository } from "./../../infrastructure/repository/order-repository";
-import { Order } from "./../../domain/entity/order";
-import { Item } from "./../../domain/entity/item";
+import { Order } from "../../domain/checkout/order";
+import { Item } from "../../domain/checkout/item";
 import { Product } from "./../../domain/entity/product";
 import { ProductRepository } from "./../../infrastructure/repository/product.repository";
 import { Address } from "./../../domain/entity/address";
