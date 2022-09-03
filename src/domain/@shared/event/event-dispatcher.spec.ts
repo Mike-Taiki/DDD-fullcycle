@@ -1,5 +1,5 @@
-import { ProductCreatedEvent } from "./../product/product-created.event";
-import { sendEmailWhenProductIsCreatedHandler } from "./../product/handler/send-email-when-product-is-created.handler";
+import { ProductCreatedEvent } from "../../product/event/product-created.event";
+import { sendEmailWhenProductIsCreatedHandler } from "../../product/event/handler/send-email-when-product-is-created.handler";
 import { EventDispatcher } from "./event-dispatcher";
 describe("doman events tests", () => {
   it("should register an event  handler", () => {

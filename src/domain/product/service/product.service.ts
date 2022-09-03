@@ -1,4 +1,4 @@
-import { Product } from "../entity";
+import { Product } from "../";
 
 export class ProductService {
   constructor() {}

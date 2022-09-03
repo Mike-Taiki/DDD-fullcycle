@@ -1,8 +1,8 @@
 import { AddressChangedEvent } from "./address-changed.event";
-import { EventDispatcher } from "../@shared/event-dispatcher";
-import { Address } from "../../entity/address";
+import { EventDispatcher } from "../../@shared";
+import { Address } from "../value-object/address";
 import { logAddressChangedHandler } from "./handler/log-when-address-is-changed";
-import { Customer } from "../../entity/customer";
+import { Customer } from "../";
 describe("Address changed handler", () => {
   it("should log address", () => {
     const customer = new Customer("2", "Rafaela");

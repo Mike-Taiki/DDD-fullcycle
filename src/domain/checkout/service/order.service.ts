@@ -1,5 +1,6 @@
-import { Customer, Item, Order } from "../entity";
-import { v4 as uuid } from "uuid";
+import { Item } from "../entity/item";
+import { Order } from "../entity/order";
+import { Customer } from "../../customer";
 
 export class OrderService {
   public static sum(orders: Order[]): number {

@@ -1,5 +1,5 @@
-import { Customer } from "../../entity/customer";
-import { EventInterface } from "../../@shared/event.interface";
+import { Customer } from "../entity/customer";
+import { EventInterface } from "../../@shared";
 export class AddressChangedEvent implements EventInterface {
   dataTimeOcurred: Date;
   eventData: Customer;

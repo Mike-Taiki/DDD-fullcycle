@@ -1,10 +1,10 @@
 import { Sequelize } from "sequelize-typescript";
-import { CustomerModel } from "../db/sequelize/model/customer.model";
+import { CustomerModel } from "../../../infrastructure/customer/repository/sequelize/customer.model";
 import {
   createCustomer,
   createAddress,
   customerRepository,
-} from "../../common/utils/create-customer";
+} from "../../../common/utils";
 
 describe("Customer repository test", () => {
   let sequelize: Sequelize;

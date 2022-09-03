@@ -1,5 +1,5 @@
-import { Product } from "../../domain/entity";
-import { ProductRepository } from "../../infrastructure/repository/product.repository";
+import { Product } from "../../domain/product";
+import { ProductRepository } from "../../domain/product";
 
 export const productRepository = new ProductRepository();
 

@@ -1,4 +1,5 @@
-import { Address, Customer, Item, Order } from "./domain/entity";
+import { Item, Order } from "./domain/checkout";
+import { Address, Customer } from "./domain/customer";
 
 let customer = new Customer("123", "Michael Gomes");
 const address = new Address("Rua dois", 2, "São Paulo", "08050490", "SP");
